@@ -5,24 +5,42 @@ The following questionnaire seeks to understand your previous knowledge about so
 
 1. Do you know any programming languages? If you do, which ones?
 
+Not really. I've taken an introductory python course during my cegep time but nothing more.
+
 2. What is your primary computer operating system (OS)?
+
+Windows 10
 
 3. Do you own a smartphone, tablet, or mobile device? What is your favourite OS for mobile devices?
 
+Currently, I'm using an iPhone and am very used to its iOS system. However, I do not have any favourite OS for mobile.
+
 4. Do you use any social networking services? If you do, which ones? Why?
+
+I use Messenger, Reddit, Skype, ins and also some other social networking services which are more popular in China just to get in touch with my family and friends and explore popular trends.
 
 5. Expand the following acronyms and do research about their meaning. You may look them up if you don't know:
 
-    HTTP
-    REST    
-    API
+    HTTP Hypertext Transfer Protocol; users can use hypertext to communicate data on the world wide web.
+    REST Representational state transfer; an architectural style (?)
+    API Application programming interface; a way to integrate multiple computer programs together (?)
+
 
 6. Do you play a musical instrument or sing? If so, how much experience do you have?
 
+I can play piano, but I do not consider myself as a good player.
+
 7. Can you read music notation? If so, how well?
+Yes, able to quickly understand most of the common notations.
 
 8. How large is your personal music collection? Estimate the number of artists, albums, and songs. If instead you listen to music using streaming services, how many playlists, artists, albums, and songs do you have in your account?
 
+Just a few playlist, and a few OST albums.Because I prefer to explore something new so it would be hard for me to estimate the number of the artists.
+
 9. How do you search and find new music? How do you think this affects the types of artists that you end up listening to?
 
+I usually use the app recommendation or just search for any genre/instrument I want to listen to and click on a playlist created by the others. (I don't like youtube music's recommendations algorithms because they are just recommending extremely similar and popular things. I'm trying my best to avoid the filter bubble.)
+
 10. Name two musical artists that you like. What do you find interesting about their music that makes you like them?
+
+A Japanese band calls Dios and C.H.O.N. Maybe just because both of their music is very rich in melodic and the rhythm is not dull for me to listen to. 
