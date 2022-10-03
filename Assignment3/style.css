@@ -1,0 +1,61 @@
+body {
+    /* background-image: url("Plini.jpg"); */
+    background-color: #090110b4;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left; 
+   }
+
+nav{
+    background-color:rgb(33, 7, 69);
+    height: 3em; */
+}
+a {
+    color: white;
+    font-size: 2em;
+
+} 
+
+p{
+    text-align: left;
+}
+
+#background {
+    width: 40%;
+    position: relative;
+    float:right;
+    padding-top: 5%;
+}
+
+.text-content{
+    padding-top: 5%;
+    width: 40%;
+    position: relative;
+    float:right;
+}
+
+.text-content ul{
+    font-weight: bold;
+}
+
+
+.image{
+    width: 50%;
+    position: relative;
+    float:left;
+    padding-top: 5%;
+}
+
+.image img{
+    width: 100%;
+}
+
+.albums_image img{
+    width: 30%;
+    position: relative;
+
+}
+.videos video{
+    position: relative;
+
+}
