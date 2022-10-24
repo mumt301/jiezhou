@@ -1,0 +1,128 @@
+<head>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<h1>lossless format and compression format experiment</h1>
+
+<body>
+    <script src="try1st.js"></script>
+    <div id="divsong1">
+        <h2>Cool Walk by Oscar Peterson</h2>
+        <table style="width:100%">
+            <tr>
+                <th>COMPRESSION ALGORITHM</th>
+                <th>QUALITY SETTING</th>
+                <th>ORIGINAL FILE SIZE</th>
+                <th>COMPRESSED FILE SIZE</th>
+                <th>COMPRESSION RATIO</th>
+                <th>LINK TO ORIGINAL VERSION</th>
+                <th>LINK TO COMPRESSED VERSION</th>
+                <th>LINK TO RESIDUAL NOISE</th>
+      
+    
+            </tr>
+            <tr>
+              <td>mp3</td>
+              <td>96kbps</td>
+              <td>74.2 MB</td>
+              <td>5.06 MB</td>
+              <td>0.068</td>
+              <td><a href="05 Cool Walk.wav">Original audio </a></td>
+              <td><a href="Coolwalk.mp3">Compressed audio </a></td>
+              <td><a href="cww-3.wav">Residual audio </a></td>
+            </tr>
+            <tr>
+                <td>Ogg Vorbis</td>
+                <td>96kbps</td>
+                <td>74.2 MB</td>
+                <td>5.13 MB</td>
+                <td>0.068</td>
+                <td><a href="05 Cool Walk.wav">Original audio </a></td>
+                <td><a href="Coolwalk.ogg">Compressed audio </a></td>
+                <td><a href="cww-opus.wav">Residual audio </a></td>
+            </tr>
+            <tr>
+                <td>Ogg Opus</td>
+                <td>96kbps</td>
+                <td>74.2 MB</td>
+                <td>10.8 MB</td>
+                <td>0.145</td>
+                <td><a href="05 Cool Walk.wav">Original audio </a></td>
+                <td><a href="Coolwalk.opus">Compressed audio </a></td>
+                <td><a href="cww-ogg.wav">Residual audio </a></td>
+            </tr>
+            <tr>
+                <td>M4A</td>
+                <td>96kbps</td>
+                <td>74.2 MB</td>
+                <td>10.3 MB</td>
+                <td>0.138</td>
+                <td><a href="05 Cool Walk.wav">Original audio </a></td>
+                <td><a href="05 Cool Walk.m4a">Compressed audio </a></td>
+                <td><a href="cww-m4a.wav">Residual audio </a></td>
+            </tr>
+          </table>
+    </div>
+   <button onclick="tog()"> toggle for the first excel</button>
+   
+    
+    <div id="divsong2">
+        <h2>String Quartet no.16, op.135 by Beethoven</h2>
+        <table style="width:100%">
+            <tr>
+              <th>COMPRESSION ALGORITHM</th>
+              <th>QUALITY SETTING</th>
+              <th>ORIGINAL FILE SIZE</th>
+              <th>COMPRESSED FILE SIZE</th>
+              <th>COMPRESSION RATIO</th>
+              <th>LINK TO ORIGINAL VERSION</th>
+              <th>LINK TO COMPRESSED VERSION</th>
+              <th>LINK TO RESIDUAL NOISE</th>
+    
+            </tr>
+            <tr>
+              <td>mp3</td>
+              <td>96kbps</td>
+              <td>65.0 MB</td>
+              <td>8.49 MB</td>
+              <td>0.13</td>
+              <td><a href="Beethoven.wav">Original audio </a></td>
+              <td><a href="Beethoven.mp3">Compressed audio </a></td>
+              <td><a href="Bw-mp3.wav">Residual audio </a></td>
+            </tr>
+            <tr>
+                <td>Ogg Vorbis</td>
+                <td>96kbps</td>
+                <td>65.0 MB</td>
+                <td>4.50 MB</td>
+                <td>0.069</td>
+                <td><a href="Beethoven.wav">Original audio </a></td>
+                <td><a href="Beethoven.ogg">Compressed audio </a></td>
+                <td><a href="Bw-ogg.wav">Residual audio </a></td>
+            </tr>
+            <tr>
+                <td>Ogg Opus</td>
+                <td>96kbps</td>
+                <td>65.0 MB</td>
+                <td>9.47 MB</td>
+                <td>0.145</td>
+                <td><a href="Beethoven.wav">Original audio </a></td>
+                <td><a href="Beethoven.opus">Compressed audio </a></td>
+                <td><a href="Bw-opus.wav">Residual audio </a></td>
+            </tr>
+            <tr>
+                <td>M4A</td>
+                <td>96kbps</td>
+                <td>65.0 MB</td>
+                <td>9.11 MB</td>
+                <td>0.14</td>
+                <td><a href="Beethoven.wav">Original audio </a></td>
+                <td><a href="Beethoven.m4a">Compressed audio </a></td>
+                <td><a href="Bw-m4a.wav">Residual audio </a></td>
+            </tr>
+          </table>
+          
+    
+    
+    
+    </div>
+</body>
