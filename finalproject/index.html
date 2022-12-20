@@ -1,0 +1,327 @@
+<!-- <html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Feed me a note!</title>
+    <link rel="stylesheet" href="fp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
+    <script src="fp.js" type="text/JavaScript"></script>
+</head>
+
+<div class="container">
+    <h3>checkbox for autotune</h3>
+    <input type="checkbox" id="check" >
+    <p id="FrequencyOutput"></p>
+    <p id="NoteOutput"></p>
+    <h3>Waveform Options</h3>
+    <div>
+        <label for="key_select">select wave forme:</label>
+        <select name="key_select" id="keysig">
+            <option value="c_maj">C Major</option>
+            <option value="g_maj">G Major</option>
+            <option value="d_maj">D Major</option>
+            <option value="a_maj">C Major</option>
+            <option value="e_maj">G Major</option>
+            <option value="b_maj">D Major</option>
+            <option value="f#_maj">C Major</option>
+            <option value="c_maj">G Major</option>
+            <option value="d_maj">D Major</option>
+        </select>
+
+    </div> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link rel="stylesheet" href="fp.css">
+    <title>essentia.js examples</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/essentia.js@0.1.0/dist/essentia-wasm.web.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/essentia.js@0.1.0/dist/essentia-wasm.web.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/essentia.js@0.1.0/dist/essentia.js-extractor.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/essentia.js@0.1.0/dist/essentia.js-plot.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/essentia.js@<version>/dist/essentia-wasm.web.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/essentia.js@<version>/dist/essentia.js-*.js"></script>
+     -->
+     <script src="fp.js" type="text/JavaScript"></script>
+    
+    <div class="ui main_wrapper landing-image">
+        <div class="ui header centered" id="header">
+            <a href="index.html">
+            </a>
+            <div>
+          <h2 class="ui header white-text" style="color: azure;">
+            Feed me a note return you a list <br>
+            (HPCP Chroma Feature Extraction)
+          </h2>
+
+        </div>
+
+
+        <div class="ui divider" style="height: 5px; width: 2px;"></div>
+
+        <div id="divsel" class="2select">
+          <form>
+              <center>
+                <label for="key_select">select the key you want:</label>
+                  <select name="key_select" id="keysig">
+                    <option value="C">C </option>
+                    <option value="G">G </option>
+                    <option value="D">D </option>
+                    <option value="A">A </option>
+                    <option value="E">E </option>
+                    <option value="B">B </option>
+                    <option value="F#">F# </option>
+                    <option value="C#">C# </option>
+                    <option value="Ab">Ab </option>
+                    <option value="Eb">Eb </option>
+                    <option value="Bb">Bb </option>
+                    <option value="F">F </option>
+                  </select>
+
+                  <select name="mode_select" id="mode">
+                    <option value="major">Major</option>
+                    <option value="minor">minor</option>
+                  </select>
+
+            </form><br><br>
+            
+              <p id="button1"><button id="bt1" type="button" onclick="userInput()">Go!</button></p>
+              <table id="information">
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><p id="song_name"></p></td>
+                    <td ><p id="song_key"></p></td>
+                </tr>
+                
+             </table>
+            
+      </div>
+      
+        
+      <div  class="body-container" >
+        <div class="ui centered one column grid container">
+          <div class="ui vertical buttons row">
+            <center>
+              <button id="recordButton" class="ui red inverted big button record-button">
+                Mic &nbsp;&nbsp;<i class="microphone icon"></i>
+              </button>
+            </center>
+          </div>
+          <div id="button2"> 
+            <button id="bt2" onclick="uservocalInput()">Send!</button>
+            
+            </div>
+
+          <canvas id="chroma-chart" class="ui centered segment" style="width: 650px; height: 300px; background-color: transparent;">
+        </canvas>
+        </div>
+      </div>
+
+      <div class="ui diverder" style="height: 50px;"></div>
+
+      <script src="./chartConfig.js"></script>
+
+      <script>
+        // global var to load essentia.js core instance
+        let essentiaExtractor;
+        let isEssentiaInstance = false;
+        // global var for web audio API AudioContext
+        let audioCtx;
+        // buffer size microphone stream (bufferSize is high in order to make PitchYinProbabilistic algo to work)
+        let bufferSize = 8192;
+        let hopSize = 2048;
+
+        let mic, scriptNode, gain;
+
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          audioCtx = new AudioContext();
+        } catch (e) {
+          throw "Could not instantiate AudioContext: " + e.message;
+        }
+
+        // global var getUserMedia mic stream
+        let gumStream;
+
+        // settings for plotting
+        let chromaChart;
+
+        // record native microphone input and do further audio processing on each audio buffer using the given callback functions
+        function startMicRecordStream(
+          audioCtx,
+          bufferSize,
+          onProcessCallback,
+          btnCallback
+        ) {
+          // cross-browser support for getUserMedia
+          navigator.getUserMedia =
+            navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia;
+          window.URL =
+            window.URL || window.webkitURL || window.mozURL || window.msURL;
+
+          if (navigator.getUserMedia) {
+            console.log("Initializing audio...");
+            navigator.getUserMedia(
+              { audio: true, video: false },
+              function(stream) {
+                gumStream = stream;
+                if (gumStream.active) {
+                  console.log(
+                    "Audio context sample rate = " + audioCtx.sampleRate
+                  );
+                  mic = audioCtx.createMediaStreamSource(stream);
+                  // We need the buffer size that is a power of two
+                  if (bufferSize % 2 != 0 || bufferSize < 4096) {
+                    throw "Choose a buffer size that is a power of two and greater than 4096";
+                  }
+                  // In most platforms where the sample rate is 44.1 kHz or 48 kHz,
+                  // and the default bufferSize will be 4096, giving 10-12 updates/sec.
+                  console.log("Buffer size = " + bufferSize);
+                  if (audioCtx.state == "suspended") {
+                    audioCtx.resume();
+                  }
+                  scriptNode = audioCtx.createScriptProcessor(bufferSize, 1, 1);
+                  // onprocess callback (here we can use essentia.js algos)
+                  scriptNode.onaudioprocess = onProcessCallback;
+                  // It seems necessary to connect the stream to a sink for the pipeline to work, contrary to documentataions.
+                  // As a workaround, here we create a gain node with zero gain, and connect temp to the system audio output.
+                  gain = audioCtx.createGain();
+                  gain.gain.setValueAtTime(0, audioCtx.currentTime);
+                  mic.connect(scriptNode);
+                  scriptNode.connect(gain);
+                  gain.connect(audioCtx.destination);
+
+                  if (btnCallback) {
+                    btnCallback();
+                  }
+                } else {
+                  throw "Mic stream not active";
+                }
+              },
+              function(message) {
+                throw "Could not access microphone - " + message;
+              }
+            );
+          } else {
+            throw "Could not access microphone - getUserMedia not available";
+          }
+        }
+
+        function stopMicRecordStream() {
+          console.log("Stopped recording ...");
+          // stop mic stream
+          gumStream.getAudioTracks().forEach(function(track) {
+            track.stop();
+          });
+          $("#recordButton").removeClass("recording");
+          $("#recordButton").html(
+            'Mic &nbsp;&nbsp;<i class="microphone icon"></i>'
+          );
+          audioCtx.suspend().then(() => {
+            mic.disconnect();
+            gain.disconnect();
+            scriptNode.disconnect();
+
+            mic, gain, scriptNode = null;
+          });
+        }
+
+        // ScriptNodeProcessor callback function to extract pitchyin feature using essentia.js and plotting it on the front-end
+        function onRecordEssentiaFeatureExtractor(event) {
+
+          let audioBuffer = event.inputBuffer.getChannelData(0);
+
+          // compute RMS for thresholding:
+          const rms = essentiaExtractor.RMS(essentiaExtractor.arrayToVector(audioBuffer)).rms;
+          console.info(rms);
+          if (rms >= 0.05) {
+            // compute hpcp for overlapping frames of audio
+            const hpcp = essentiaExtractor.hpcpExtractor(audioBuffer);
+            console.log(`raw: ${hpcp}`);
+
+            const scaledHPCP = hpcp.map(i => 100* Math.tanh(Math.pow(i*0.5, 2)));
+            console.log(`scaled: ${scaledHPCP}`);
+
+            //scaleddHPCP should be the pitch values.
+
+            chromaChart.data.datasets[0].backgroundColor = KEYS.map((k, i) => `hsl(${PITCH_CLASS_COLORS[k]}, ${scaledHPCP[i]}%, ${25+scaledHPCP[i]/3}%)`);
+            // here we call the plotting function to display realtime feature extraction results
+            chromaChart.update();
+          } else {
+            chromaChart.data.datasets[0].backgroundColor = KEYS.map((k, i) => `hsl(${PITCH_CLASS_COLORS[k]}, 0%, 25%)`);
+            chromaChart.update();
+          }
+
+        }
+
+        $(document).ready(function() {
+          // create essentia plot instance
+          chromaChart = new Chart(canvas.getContext('2d'), CHART_CONFIG);
+
+          // add event listeners to ui objects
+          $("#recordButton").click(function() {
+            let recording = $(this).hasClass("recording");
+            if (!recording) {
+              $(this).prop("disabled", true);
+
+              // loads the WASM backend and runs the feature extraction
+              EssentiaWASM().then(function(essentiaWasmModule) {
+                if (!isEssentiaInstance) {
+                  essentiaExtractor = new EssentiaExtractor(essentiaWasmModule);
+                  // settings specific to an algorithm
+                  // essentiaExtractor.profile.HPCP.nonLinear = true;
+                            // modifying default extractor settings
+                  essentiaExtractor.frameSize = bufferSize;
+                  essentiaExtractor.hopSize = hopSize;
+                  essentiaExtractor.sampleRate = audioCtx.sampleRate;
+                  essentiaExtractor.profile.HPCP.normalized = 'none';
+                  essentiaExtractor.profile.HPCP.harmonics = 0;
+                  console.log('profile changed')
+                  isEssentiaInstance = true;
+                }
+                // start microphone stream using getUserMedia
+                startMicRecordStream(
+                  audioCtx,
+                  bufferSize,
+                  onRecordEssentiaFeatureExtractor, // essentia.js feature extractor callback function
+                  function() {
+                    // called when the promise fulfilled
+                    $("#recordButton").addClass("recording");
+                    $("#recordButton").html(
+                      'Stop &nbsp;&nbsp;<i class="stop icon"></i>'
+                    );
+                    $("#recordButton").prop("disabled", false);
+                  }
+                );
+              });
+            } else {
+              stopMicRecordStream();
+            }
+          }); // end recordButton onClick
+        });
+      </script>
+    </div>
+  </body>
+</html>

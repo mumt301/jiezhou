@@ -114,7 +114,7 @@ function oscOption(oscillator){
         return oscillator
     }
 }
-function addReverb(oscillator){
+function addReverb(){
     let checkBox = document.getElementById("checkreverb");
     if (checkBox.checked == true){
         console.log("im in reverb")
